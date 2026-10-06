@@ -1,0 +1,291 @@
+export const resumeData = {
+  personal: {
+    name: "Narra Dhanunjay",
+    rollNo: "22NE1A05C9",
+    title: "Computer Science Engineering | Front End Developer | Full Stack AI",
+    tagline: "Bridging Artificial Intelligence, Agile Software Engineering & Data Analytics into scalable systems",
+    bio: "Computer Science & Engineering student at Tirumala Engineering College (JNTUK) with strong hands-on certifications & internship experience in Artificial Intelligence, Python Data Analytics, Business Intelligence (Power BI, Tableau), Next-Gen Technologies, and Agile Software Engineering from Infosys Springboard, APSSDC, AICTE & Blackbucks.",
+    avatar: "/images/profile.jpg",
+    location: "Narasaraopeta / Guntur, Andhra Pradesh",
+    status: "Open for Full-time Roles & Internships",
+    yearsOfExperience: "6+ Certifications & Internships",
+    completedProjects: "15+ Projects",
+    satisfiedClients: "100%",
+  },
+
+  contact: {
+    email: "narradhanunjay5002@gmail.com",
+    phone: "+91 70328 48359",
+    linkedin: "https://www.linkedin.com/in/dhanunjay-narra-6736a9283",
+    github: "https://github.com/Dhanunjay-narra",
+    portfolio: "https://github.com/Dhanunjay-narra",
+    location: "Andhra Pradesh, India",
+  },
+
+  technicalSkills: [
+    {
+      category: "Storage & Infrastructure",
+      details: "Storage SME (HPE Alletra, Primera, NetApp, Qumulo & Brocade), Cloud Computing, Systems Engineering",
+      iconType: "storage",
+      theme: "amber",
+      items: [
+        { name: "Storage SME", sub: "HPE Alletra, Primera, NetApp, Qumulo, Brocade" },
+        { name: "Cloud Computing", sub: "Cloud Systems & Architecture" },
+        { name: "Systems Engineering", sub: "Enterprise Infrastructure" }
+      ]
+    },
+    {
+      category: "Scripting & Automation",
+      details: "Python, Java, JavaScript, Scripting, Automation Tools",
+      iconType: "scripting",
+      theme: "blue",
+      items: [
+        { name: "Python", icon: "python" },
+        { name: "Java", icon: "java" },
+        { name: "JavaScript", icon: "javascript" },
+        { name: "Scripting", icon: "terminal" },
+        { name: "Automation Tools", icon: "workflow" }
+      ]
+    },
+    {
+      category: "Application & Web",
+      details: "HTML, CSS, React, Flask, Django, REST APIs",
+      iconType: "web",
+      theme: "emerald",
+      items: [
+        { name: "React", icon: "react" },
+        { name: "HTML & CSS", icon: "htmlcss" },
+        { name: "Flask & Django", icon: "flaskdjango" },
+        { name: "REST APIs", icon: "api" }
+      ]
+    },
+    {
+      category: "Databases & Tools",
+      details: "MySQL, PostgreSQL, Git, GitHub, Docker",
+      iconType: "database",
+      theme: "cyan",
+      items: [
+        { name: "MySQL", icon: "mysql" },
+        { name: "PostgreSQL", icon: "postgres" },
+        { name: "Git & GitHub", icon: "git" },
+        { name: "Docker", icon: "docker" }
+      ]
+    },
+    {
+      category: "Operating Systems",
+      details: "In-depth knowledge of Windows and Linux Operating Systems",
+      iconType: "os",
+      theme: "indigo",
+      items: [
+        { name: "Linux OS", icon: "linux", sub: "In-depth knowledge" },
+        { name: "Windows OS", icon: "windows", sub: "In-depth knowledge" }
+      ]
+    },
+    {
+      category: "Domains",
+      details: "Enterprise IT applications, Software Development, Data & Analytics",
+      iconType: "domain",
+      theme: "purple",
+      items: [
+        { name: "Enterprise IT", icon: "building" },
+        { name: "Software Development", icon: "code" },
+        { name: "Data & Analytics", icon: "chart" }
+      ]
+    }
+  ],
+
+  experience: [
+    {
+      period: "Oct 2025 - Apr 2026",
+      role: "Business & Data Analytics Intern (6 Months)",
+      company: "Blackbucks Education Pvt. Ltd.",
+      location: "Hyderabad / Remote",
+      description: "6 Months intensive industrial internship on Power BI dashboards, Tableau interactive stories, advanced statistical data analysis, and enterprise data reporting.",
+      highlights: ["Power BI", "Tableau", "Advanced Excel", "Data Analytics"],
+    },
+    {
+      period: "May 2025 - Jun 2025",
+      role: "Artificial Intelligence Intern",
+      company: "SkillDzire (AICTE Recognized)",
+      location: "Hyderabad, India",
+      description: "Implemented Machine Learning pipelines, model evaluation metrics, neural network fundamentals, and AI application workflows.",
+      highlights: ["Artificial Intelligence", "Machine Learning", "Python", "Model Evaluation"],
+    },
+    {
+      period: "Jun 2024 - Jul 2024",
+      role: "Data Analysis using Python Intern",
+      company: "APSSDC (Govt. of Andhra Pradesh)",
+      location: "Andhra Pradesh, India",
+      description: "Executed data cleaning, exploratory data analysis (EDA), data transformations, and visual analytics using Python, Pandas, NumPy, and Matplotlib.",
+      highlights: ["Python", "Pandas & NumPy", "Matplotlib/Seaborn", "EDA"],
+    },
+  ],
+
+  education: [
+    {
+      degree: "B.Tech.",
+      institution: "Tirumala Engineering College",
+      year: "2022–2026",
+      score: "8.0 CGPA",
+    },
+    {
+      degree: "Intermediate",
+      institution: "Sri Chaitanya Junior College",
+      year: "2020–2022",
+      score: "65%",
+    },
+    {
+      degree: "SSC",
+      institution: "School Name",
+      year: "2020",
+      score: "98%",
+    },
+  ],
+
+  certifications: [
+    {
+      id: "cert-1",
+      pageNumber: "03",
+      sectionNumber: "01",
+      title: "Data Analysis using Python Internship",
+      issuer: "Andhra Pradesh State Skill Development Corporation (APSSDC)",
+      orgBadge: "Government of Andhra Pradesh",
+      badgeTheme: "amber",
+      date: "06-06-2024 to 31-07-2024",
+      credentialId: "SDC/24-25/DAPIN/0812",
+      pin: "22NE1A05C9",
+      image: "/images/cert-apssdc-python.png",
+      verifyUrl: "http://apssdc.in",
+      keySkills: ["Python", "NumPy", "Pandas", "Matplotlib", "Data Wrangling", "Exploratory Analysis"],
+      description: "Successfully completed the specialized online internship on Data Analysis using Python in APSSDC. Mastered data preprocessing, exploratory analysis, statistical modeling, and insight extraction.",
+    },
+    {
+      id: "cert-2",
+      pageNumber: "04",
+      sectionNumber: "02",
+      title: "Artificial Intelligence Internship",
+      issuer: "SkillDzire & AICTE Recognized",
+      orgBadge: "AICTE & SkillDzire Certified",
+      badgeTheme: "sky",
+      date: "05-May-2025 to 20-Jun-2025",
+      credentialId: "SDST-25-14082",
+      pin: "22NE1A05C9",
+      image: "/images/cert-skilldzire-ai.png",
+      verifyUrl: "https://skilldzire.com",
+      keySkills: ["Artificial Intelligence", "Machine Learning", "Neural Networks", "Python", "Data Modeling"],
+      description: "Completed short-term intensive industrial internship program in Artificial Intelligence. Learned end-to-end ML model development, training pipelines, classification, and computer vision / NLP fundamentals.",
+    },
+    {
+      id: "cert-3",
+      pageNumber: "05",
+      sectionNumber: "03",
+      title: "6 Months Business & Data Analytics Internship",
+      issuer: "Blackbucks Education & NEAT / EduSkills",
+      orgBadge: "6 Months Long-Term Master Certification",
+      badgeTheme: "emerald",
+      date: "16th Oct 2025 to 15th April 2026",
+      credentialId: "BBEDAPSCHE2026LT03327",
+      pin: "22NE1A05C9",
+      image: "/images/cert-blackbucks-analytics.png",
+      verifyUrl: "https://blackbuckseducation.com",
+      keySkills: ["Power BI", "Tableau", "Advanced Excel", "Business Intelligence", "KPI Dashboards", "Statistical Modeling"],
+      description: "Comprehensive 6-month long-term industrial internship covering end-to-end business intelligence, enterprise dashboard creation, data storytelling with Tableau, advanced Excel modeling, and industry case studies.",
+    },
+    {
+      id: "cert-4",
+      pageNumber: "06",
+      sectionNumber: "04",
+      title: "Software Engineering & Agile Development",
+      issuer: "Infosys Springboard",
+      orgBadge: "Infosys Springboard Certified",
+      badgeTheme: "blue",
+      date: "Completed Sept 29, 2024",
+      credentialId: "INFOSYS-SWE-AGILE-2024",
+      pin: "22NE1A05C9",
+      image: "/images/cert-infosys-agile-swe.png",
+      verifyUrl: "https://verify.onwingspan.com",
+      keySkills: ["Software Engineering", "Agile Methodology", "Scrum Framework", "SDLC", "Sprint Planning"],
+      description: "Demonstrated proficiency in modern software engineering principles, agile lifecycle management, sprint execution, requirement analysis, and enterprise software engineering workflows.",
+    },
+    {
+      id: "cert-5",
+      pageNumber: "07",
+      sectionNumber: "05",
+      title: "Development & Testing with Agile: XP",
+      issuer: "Infosys Springboard",
+      orgBadge: "Infosys Springboard Certified",
+      badgeTheme: "indigo",
+      date: "Completed Oct 2, 2024 (Issued Oct 4, 2024)",
+      credentialId: "INFOSYS-XP-TEST-2024",
+      pin: "22NE1A05C9",
+      image: "/images/cert-infosys-xp-testing.png",
+      verifyUrl: "https://verify.onwingspan.com",
+      keySkills: ["Extreme Programming (XP)", "Test-Driven Development (TDD)", "Continuous Integration", "Unit Testing", "Code Refactoring"],
+      description: "Mastered Extreme Programming (XP) practices, Test-Driven Development (TDD), automated testing pipelines, pair programming dynamics, and agile continuous code delivery.",
+    },
+    {
+      id: "cert-6",
+      pageNumber: "08",
+      sectionNumber: "06",
+      title: "Next Gen Technologies",
+      issuer: "Infosys Springboard",
+      orgBadge: "Infosys Springboard Certified",
+      badgeTheme: "purple",
+      date: "Completed Oct 10, 2024 (Issued Oct 11, 2024)",
+      credentialId: "INFOSYS-NEXTGEN-2024",
+      pin: "22NE1A05C9",
+      image: "/images/cert-infosys-nextgen.png",
+      verifyUrl: "https://verify.onwingspan.com",
+      keySkills: ["Next-Gen Tech", "Cloud Architecture", "Emerging AI Systems", "Distributed Systems", "Digital Transformation"],
+      description: "Successfully completed the comprehensive curriculum on next-generation computing technologies, cloud architectures, intelligent systems, and enterprise digital transformation paradigms.",
+    },
+  ],
+
+  projects: [
+    {
+      title: "3D Interactive Notebook Resume",
+      repo: "3d-resume",
+      category: "Frontend & 3D UI",
+      description: "Interactive 3D notebook resume portfolio with realistic page flip physics, responsive dual/single spreads, and verified credentials showcase.",
+      tech: ["React.js", "Vite", "Tailwind CSS", "Framer Motion", "react-pageflip"],
+      github: "https://github.com/Dhanunjay-narra/3d-resume",
+      demo: "https://github.com/Dhanunjay-narra/3d-resume",
+    },
+    {
+      title: "WorkGrid Enterprise Operations",
+      repo: "WorkGrid-Enterprise-Operations-Platform",
+      category: "Enterprise Systems",
+      description: "Scalable enterprise operations & team workflow platform with automated task tracking, role-based access, and analytics dashboards.",
+      tech: ["React", "Node.js", "REST APIs", "Enterprise IT", "MySQL"],
+      github: "https://github.com/Dhanunjay-narra/WorkGrid-Enterprise-Operations-Platform",
+      demo: "https://github.com/Dhanunjay-narra/WorkGrid-Enterprise-Operations-Platform",
+    },
+    {
+      title: "Digital Banking Platform",
+      repo: "Digital-Banking-Platform",
+      category: "Fintech & Security",
+      description: "Secure digital banking platform featuring real-time transactions, account telemetry, encrypted authentication, and audit logs.",
+      tech: ["JavaScript", "Full Stack", "Auth", "REST APIs", "PostgreSQL"],
+      github: "https://github.com/Dhanunjay-narra/Digital-Banking-Platform",
+      demo: "https://github.com/Dhanunjay-narra/Digital-Banking-Platform",
+    },
+    {
+      title: "Traffic Analytics & ML Suite",
+      repo: "Traffic-Analytics",
+      category: "AI & Data Analytics",
+      description: "Predictive traffic flow analysis, statistical density modeling, and automated visual exploratory data analytics.",
+      tech: ["Python", "Pandas", "Machine Learning", "Matplotlib", "EDA"],
+      github: "https://github.com/Dhanunjay-narra/Traffic-Analytics",
+      demo: "https://github.com/Dhanunjay-narra/Traffic-Analytics",
+    },
+    {
+      title: "Smart Agriculture IoT Systems",
+      repo: "Embedded-Systems-Smart-Agriculture",
+      category: "IoT & Automation",
+      description: "Embedded IoT system for precision agriculture, telemetry sensors, soil monitoring, and automated irrigation controls.",
+      tech: ["IoT", "Python", "Embedded Systems", "Sensors", "Automation"],
+      github: "https://github.com/Dhanunjay-narra/Embedded-Systems-Smart-Agriculture",
+      demo: "https://github.com/Dhanunjay-narra/Embedded-Systems-Smart-Agriculture",
+    },
+  ],
+};
