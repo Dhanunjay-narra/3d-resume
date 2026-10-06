@@ -136,7 +136,7 @@ export const resumeData = {
     },
     {
       degree: "SSC",
-      institution: "School Name",
+      institution: "Tinytots",
       year: "2020",
       score: "98%",
     },
