@@ -1,31 +1,59 @@
 import { useState, forwardRef } from 'react';
 import { motion } from 'framer-motion';
-import { RotateCcw, Send, CheckCircle2, Mail } from 'lucide-react';
+import { RotateCcw, Send, CheckCircle2, AlertCircle, Loader2, Mail } from 'lucide-react';
 
 export const PageBackCover = forwardRef((props, ref) => {
   const { onRestartBook, style, className } = props;
-  const [senderInfo, setSenderInfo] = useState('');
-  const [senderNote, setSenderNote] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const [senderEmail, setSenderEmail] = useState('');
+  const [senderMessage, setSenderMessage] = useState('');
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
 
-  const handleSendInquiry = (e) => {
+  const handleSendInquiry = async (e) => {
     e.preventDefault();
-    const emailTo = 'narradhanunjay5002@gmail.com';
-    const subject = encodeURIComponent('Direct Inquiry from 3D Portfolio - Narra Dhanunjay');
-    const body = encodeURIComponent(
-      `Hello Dhanunjay,\n\nSender Contact: ${senderInfo || 'Not specified'}\nNote / Inquiry: ${senderNote || 'Looking forward to connecting!'}\n\nSent via 3D Interactive Portfolio`
-    );
+    if (!senderEmail.trim() || !senderMessage.trim()) return;
 
-    setSubmitted(true);
-    setTimeout(() => {
-      window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
-    }, 400);
+    setStatus('loading');
 
-    setTimeout(() => {
-      setSubmitted(false);
-      setSenderInfo('');
-      setSenderNote('');
-    }, 4000);
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/narradhanunjay5002@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          _subject: `New Direct Inquiry from 3D Portfolio - ${senderEmail}`,
+          email: senderEmail,
+          message: senderMessage,
+          _captcha: 'false',
+          _template: 'table',
+        }),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setSenderEmail('');
+        setSenderMessage('');
+        setTimeout(() => setStatus('idle'), 6000);
+      } else {
+        throw new Error('Form submission failed');
+      }
+    } catch (err) {
+      // Fallback gracefully to mailto
+      console.error(err);
+      const emailTo = 'narradhanunjay5002@gmail.com';
+      const subject = encodeURIComponent(`Direct Inquiry from 3D Portfolio - ${senderEmail}`);
+      const body = encodeURIComponent(
+        `From: ${senderEmail}\n\nMessage:\n${senderMessage}\n\n--\nSent via 3D Interactive Portfolio`
+      );
+
+      setStatus('error');
+      setTimeout(() => {
+        window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+      }, 500);
+
+      setTimeout(() => setStatus('idle'), 6000);
+    }
   };
 
   return (
@@ -50,7 +78,7 @@ export const PageBackCover = forwardRef((props, ref) => {
       </div>
 
       {/* 100% Dead-Center Content: Absolute Inset-0 Flex Centering */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-4 z-10 pointer-events-auto max-w-md mx-auto my-auto">
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4 sm:p-6 md:p-8 space-y-3 sm:space-y-3.5 z-10 pointer-events-auto max-w-md mx-auto my-auto">
         
         {/* Thank You Heading */}
         <div className="space-y-1">
@@ -66,56 +94,82 @@ export const PageBackCover = forwardRef((props, ref) => {
         </div>
 
         {/* Direct Inquiry Card Matching Portfolio Aesthetic */}
-        <div className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#18191f]/90 border border-[#c89b65]/35 shadow-xl backdrop-blur-md text-left space-y-2.5">
+        <div className="w-full p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-[#18191f]/95 border border-[#c89b65]/35 shadow-xl backdrop-blur-md text-left space-y-2.5">
           <div>
             <div className="text-[9.5px] font-mono font-bold uppercase tracking-widest text-[#dfc7a7]/80 flex items-center gap-1.5">
               <Mail className="w-3 h-3 text-[#dfc7a7]" />
               <span>DIRECT INQUIRY</span>
             </div>
             <h3 className="text-xs sm:text-sm font-bold text-white mt-0.5">
-              Let's Connect &amp; Collaborate
+              Email sent directly to Dhanunjay
             </h3>
-            <p className="text-[10px] sm:text-[10.5px] text-stone-400 leading-snug">
-              Drop your handle or project brief below to establish direct connection.
+            <p className="text-[10px] text-stone-400 leading-snug">
+              Drop your email &amp; message below. It will be delivered directly to my inbox.
             </p>
           </div>
 
           <form onSubmit={handleSendInquiry} className="space-y-2">
             <div className="space-y-1.5">
               <input
-                type="text"
-                placeholder="Your Email or LinkedIn"
-                value={senderInfo}
-                onChange={(e) => setSenderInfo(e.target.value)}
+                type="email"
+                placeholder="Your Email (e.g. name@company.com)"
+                value={senderEmail}
+                onChange={(e) => setSenderEmail(e.target.value)}
                 required
+                disabled={status === 'loading'}
                 className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#25262e] border border-stone-700/80 focus:border-[#dfc7a7] text-white placeholder-stone-500 outline-none transition-colors"
               />
-              <input
-                type="text"
-                placeholder="Brief note or role/project type"
-                value={senderNote}
-                onChange={(e) => setSenderNote(e.target.value)}
-                className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#25262e] border border-stone-700/80 focus:border-[#dfc7a7] text-white placeholder-stone-500 outline-none transition-colors"
+              <textarea
+                rows={2}
+                placeholder="Write your note, role, or project inquiry..."
+                value={senderMessage}
+                onChange={(e) => setSenderMessage(e.target.value)}
+                required
+                disabled={status === 'loading'}
+                className="w-full px-3 py-1.5 text-xs rounded-lg bg-[#25262e] border border-stone-700/80 focus:border-[#dfc7a7] text-white placeholder-stone-500 outline-none transition-colors resize-none"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full py-2 px-3 rounded-lg bg-gradient-to-r from-[#b84a1b] to-[#d97736] hover:from-[#a03e15] hover:to-[#c4682c] text-white font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer hover:scale-[1.01] active:scale-[0.99]"
+              disabled={status === 'loading'}
+              className={`w-full py-2 px-3 rounded-lg font-bold text-xs shadow-md transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                status === 'success'
+                  ? 'bg-emerald-600 text-white'
+                  : status === 'error'
+                  ? 'bg-amber-600 text-white'
+                  : 'bg-gradient-to-r from-[#b84a1b] to-[#d97736] hover:from-[#a03e15] hover:to-[#c4682c] text-white hover:scale-[1.01] active:scale-[0.99]'
+              }`}
             >
-              {submitted ? (
+              {status === 'loading' ? (
+                <>
+                  <Loader2 className="w-3.5 h-3.5 animate-spin text-white" />
+                  <span>Sending Message to Inbox...</span>
+                </>
+              ) : status === 'success' ? (
                 <>
                   <CheckCircle2 className="w-3.5 h-3.5 text-white" />
-                  <span>Opening Mail Client...</span>
+                  <span>Message Sent Successfully! ✓</span>
+                </>
+              ) : status === 'error' ? (
+                <>
+                  <AlertCircle className="w-3.5 h-3.5 text-white" />
+                  <span>Opening Mail App...</span>
                 </>
               ) : (
                 <>
                   <Send className="w-3.5 h-3.5" />
-                  <span>Request Email &amp; Introduction</span>
+                  <span>Send Message Directly</span>
                 </>
               )}
             </button>
           </form>
+
+          {status === 'success' && (
+            <p className="text-[10px] text-emerald-400 font-mono text-center animate-fade-in">
+              ✓ Message delivered to narradhanunjay5002@gmail.com
+            </p>
+          )}
         </div>
 
         {/* Return to Front Cover Button */}
