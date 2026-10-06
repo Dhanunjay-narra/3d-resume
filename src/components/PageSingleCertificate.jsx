@@ -60,6 +60,8 @@ export const PageSingleCertificate = forwardRef((props, ref) => {
             <img
               src={cert.image}
               alt={cert.title}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-stone-900/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center p-2 text-white">

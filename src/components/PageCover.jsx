@@ -39,6 +39,8 @@ export const PageCover = forwardRef((props, ref) => {
             <img
               src={resumeData.personal.avatar}
               alt={resumeData.personal.name}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
           </div>
